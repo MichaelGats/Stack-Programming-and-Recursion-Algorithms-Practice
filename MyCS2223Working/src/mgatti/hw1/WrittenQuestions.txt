@@ -1,0 +1,69 @@
+<<Michael Gatti>>
+HW1
+Written Questions
+
+Question 1: Stack Experiments
+
+1.1) Run Evaluate on input "( 3 2 * / 5 )" 
+a) State the observed output: 0.4
+
+b) Describe the state of the ops stack when the program completes:
+The ops stack only has one value once the program completes (because N = 1), so the ops stack is [*] (because * is the first value).
+
+c) Describe the state of the vals stack when the program completes:
+The vals stack only has one value once the program completes (because N = 1), so the vals stack is [3.0] (because 3.0 is the first value).
+ 
+1.2) Run Evaluate on input "(4 + + 1 )"
+a) State the observed output: 5.0 
+
+b) Describe the state of the ops stack when the program completes:
+The ops stack only has one value once the program completes (because N = 1), so the ops stack is [+] (because + is the first value).
+
+c) Describe the state of the vals stack when the program completes:
+The vals stack is empty because N = 0, this originally makes it [], but as said in the notes a empty array would push the values "4" and "1" onto the stack in that order so it would be [4,1]
+
+1.3) Run Evaluate on input "- 76"
+a) State the observed output: 76.0
+
+b) Describe the state of the ops stack when the program completes:
+The ops stack only has one value once the program completes (because N = 1), so the ops stack is [-] (because - is the first value).
+
+c) Describe the state of the vals stack when the program completes: 
+The vals stack is empty because N = 0, this is despite the original stack being [76.0] 
+
+
+1.4) Run Evaluate on input "( 8 * ( 9 + ( 3 + 4"
+a) State the observed output: 4.0 
+
+b) Describe the state of ops stack when the program completes: 
+The ops stack only has three values once the program completes (because N = 3), so the ops stack is [*,+,+] (because - is the first value).
+
+c) Describe the state of vals stack when the program completes: 
+The vals stack has 3 values since N = 3. This makes the vals stack [8.0, 9.0, 3.0]
+
+1.5) Run Evaluate on input "( ( 3 + 1 ) / ( ( 4 * 1 ) / ( 5 - 9 ) ) )"
+
+a) State the observed output: -4.0
+
+b) Describe the state of the ops stack when the program completes: 
+The ops stack is an empty array [] because the N = 0. 
+
+c) Describe the state of the vals stack when the program completes: 
+The vals stack is an empty array [] because the N = 0.
+
+1.7) Run your modified Evaluate on input "( 2 exp ( 17 log 4 ) )
+a) State the observed output: 4.1231056256176615
+
+b) Describe the state of the ops stack when the program completes: 
+Since N = 0, the ops stack will be []
+
+c) Describe the state of the vals stack when the program completes: 
+Since N = 0, the vals stack will be []
+
+d) explain the result of the computation: 
+Evaluate goes through the equation we input: ( 2 exp ( 17 log 4 ) ) and pushes 2, 17, and 4 onto the vals stack, and pushes exp and log in that order.
+The evaluate method works by using every closed bracket as the equivalent of a equals sign, for the last two/ top two values of the vals stack. 
+This would make our log function which takes the top of the stack (4) as the base of the next val on the stack (17) and finds it rounded to be 2.0437. 
+It then leaves the last closing parenthesis with 2 exp 2.0437 where our exp takes the top of the stack 2.0437 and makes that the exponent for the next number which is 2. 
+This all equates to our result being 4.123.   
+
